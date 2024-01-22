@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+summary {
+          display: flex;
+    @apply bg-gray-100 mx-auto max-w-[90%]
+      }
+
+summary::before {
+    content: '';
+    width: 18px;
+    height: 10px;
+    background: url('https://uploads.sitepoint.com/wp-content/uploads/2023/10/1697699669arrow.svg') no-repeat;
+    background-size: cover;
+    transition: 0.2s;
+
+    @apply align-middle my-auto mx-2
+}
+
+details[open] > summary::before {
+    transform: rotate(180deg);
+}
+article{
+    @apply bg-gray-400 mx-auto max-w-[90%]
+}

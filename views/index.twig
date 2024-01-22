@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IntelligentSystems task | khAntans</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-300 flex w-screen justify-center">
+<div class="wrapper grid grid-cols-3 w-1/2 gap-3 min-w-[700px]">
+    <header class="row-span-1 col-span-full grid grid-rows-auto">
+        <h1 class="text-center text-4xl font-extrabold p-4 h-min">Tasks App</h1>
+        {% if session['error'] %}
+            <div id="dialogue" class="border-red-700 rounded-md bg-red-600 bg-opacity-25 shadow-sm">
+                <p class="inline-block text-center text-md row-start-2 p-4 text-red-600 h-min">{{ session['error'] }}</p>
+                <span id="close" onclick="this.parentNode.remove()" class="float-right inline-block pl-4 pr-2 z-50 my-2 text-gray-900 hover:text-gray-600 hover:font-extrabold  hover:cursor-pointer -rotate-45 text-4xl">
+                +
+            </span>
+            </div>
+        {% elseif session['successful'] %}
+            <div id="dialogue" class="border-green-700 rounded-md bg-green-600 bg-opacity-25 shadow-sm">
+                <p class="inline-block text-center text-md row-start-2 p-4 text-green-600 h-min">{{ session['successful'] }}</p>
+                <span id="close" onclick="this.parentNode.remove()" class="float-right inline-block pl-4 pr-2 z-50 my-2 text-gray-900 hover:text-gray-600 hover:font-extrabold  hover:cursor-pointer -rotate-45 text-4xl">
+                +
+            </span>
+            </div>
+        {% endif %}
+
+    </header>
+    <div class="grid row-start-2 row-span-2 rounded col-span-2 h-min ">
+        <h2 class="text-center font-bold text-2xl pb-2 col-span-full h-min">Tasks</h2>
+        {% for task in tasks.all %}
+        <details class="w-full m-2 drop-shadow-md h-min">
+            <summary class="grid rounded-md p-2"><h4 class="col-start-2 col-span-4 text-left text-xl break-all text-wrap self-center max-w-[90%]">
+                {{ task.getName }}</h4>
+                    <button type="submit" form="task-{{ task.getId }}" value="Delete" class="col-start-6 bg-black my-auto p-2 ml-auto hover:bg-gray-600 text-white font-bold rounded text-md max-h-12 w-20 text-center justify-end">Delete</button>
+
+            </summary>
+            <article class="grid rounded-b-md break-words text-wrap p-3 mt-[-4px] pt-2.5">
+                {{ task.getDescription }}
+                <p class="text-left text-sm row-start-2 font-light">Created at: {{ task.getCreatedAt()|date("m/d/Y h:i:s")  }} ({{ task.getCreatedAt().diffForHumans() }})</p>
+                <form action="/delete/{{ task.getId }}" method="POST" id="task-{{ task.getId }}">
+                    <input type="hidden" name="id" value="{{ task.getId }}" />
+                </form>
+            </article>
+        </details>
+        {%endfor%}
+
+    </div>
+    <form action="/" method="post" id="create-task" class="col-start-3 row-start-2 row-end-auto rounded pb-3 grid max-w-full p-2 bg-gray-500 shadow-inner bg-opacity-25">
+        <h2 class="text-center font-bold text-2xl pb-2">Create task</h2>
+        <label for="task_name" class="font-bold p-1">Name</label>
+        <input type="text" id="task_name" name="task_name" class="min-w-0 w-full p-1 rounded-md mb-2 text-md" required min="3" maxlength="120" />
+        <label for="task_description" class="font-bold p-1">Description</label>
+        <textarea id="task_description" name="task_description" cols="30" rows="10" class="min-w-0 max-w-fit p-1 rounded-md text-md"></textarea>
+        <button type="submit" class="bg-black text-center ml-auto hover:bg-gray-700 text-white font-bold py-2 px-4 rounded text-xl mt-3 min-w-24 max-w-sm">Add</button>
+    </form>
+</div>
+<script>
+    const dialogue = document.querySelector('#dialogue');
+</script>
+</body>
+</html>
