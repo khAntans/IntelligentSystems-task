@@ -19,8 +19,8 @@ Simple, single-paged task manager app which allows the user to save, delete and 
 - Found the details element quite nice for this type of application, since the user doesn't need to always see the task description.
 
 <h5>Index view</h5>
-<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-05.png" width="500px" alt="index">
+<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-05.png" alt="index">
 <h5>Successful operation</h6>
-<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-37.png" width="500px" alt="successful operation">
+<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-37.png" walt="successful operation">
 <h5>Failed Operation</h5>
-<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-36-03.png" width="500px" alt="failed operation">
+<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-36-03.png" alt="failed operation">
