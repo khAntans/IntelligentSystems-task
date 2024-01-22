@@ -5,6 +5,7 @@ namespace App\Services\Task;
 
 use App\Models\Task;
 use App\Repositories\TaskRepository;
+use Carbon\Carbon;
 
 class StoreTaskService
 {
@@ -16,7 +17,8 @@ class StoreTaskService
     {
         $task = new Task(
             $name,
-            $description
+            $description,
+            Carbon::now('UTC')
         );
 
         $this->taskRepository->save($task);

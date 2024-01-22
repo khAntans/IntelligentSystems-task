@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use Dotenv\Dotenv;
+use function DI\create;
 
 class MysqlTaskRepository implements TaskRepository
 {
@@ -52,7 +53,7 @@ class MysqlTaskRepository implements TaskRepository
         return new Task(
             $taskEntry['task_name'],
             $taskEntry['task_description'],
-            Carbon::create($taskEntry['created_at']) ?? Carbon::now(),
+            Carbon::create($taskEntry['created_at']) ?? Carbon::now('UTC'),
             (int)$taskEntry['id']
         );
     }
@@ -70,11 +71,13 @@ class MysqlTaskRepository implements TaskRepository
             ->values(
                 [
                     'task_name' => ':name',
-                    'task_description' => ':description'
+                    'task_description' => ':description',
+                    'created_at'=>':createdAt'
                 ]
             )->setParameters([
                 'name' => $task->getName(),
                 'description' => $task->getDescription(),
+                'createdAt' => $task->getCreatedAt()
             ])->executeQuery();
     }
 

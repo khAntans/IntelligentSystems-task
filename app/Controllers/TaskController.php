@@ -42,11 +42,6 @@ class TaskController
         return $task;
     }
 
-    public function create(): Response
-    {
-        return new ViewResponse('create');
-    }
-
     public function store(): Response
     {
 
