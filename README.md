@@ -23,4 +23,4 @@ Simple, single-paged task manager app which allows the user to save, delete and 
 <h5>Successful operation</h6>
 <img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-37.png?token=GHSAT0AAAAAACMPTQE3BGURFKZSGCRKNVO2ZNQBI3Q" walt="successful operation">
 <h5>Failed Operation</h5>
-<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-35-37.png?token=GHSAT0AAAAAACMPTQE3BGURFKZSGCRKNVO2ZNQBI3Q" alt="failed operation">
+<img src="https://raw.githubusercontent.com/khAntans/images-for-personal-projects/main/Screenshot%20from%202024-01-22%2006-36-03.png?token=GHSAT0AAAAAACMPTQE3STJ2K6AWKWZ7XTGIZNQBJBA" alt="failed operation">
